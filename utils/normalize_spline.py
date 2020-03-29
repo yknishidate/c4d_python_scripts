@@ -8,6 +8,8 @@ def make_editable(obj, inserted=False):
         return False
     return res[0]
 
+def copy_coodinates(from_obj, to_obj):
+    to_obj.SetMg(from_obj.GetMg())
 
 def main():
     splines = doc.GetActiveObjects(1)
@@ -20,6 +22,8 @@ def main():
             continue
 
         count = spline.GetPointCount()
+        matrix = spline.GetMg()
+        spline.SetMg(c4d.Matrix())
         print count
 
         mospl = c4d.BaseObject(440000054)
@@ -28,11 +32,12 @@ def main():
         mospl[c4d.MGMOSPLINEOBJECT_SOURCE_SPLINE] = spline
         mospl[c4d.MGMOSPLINEOBJECT_SPLINE_COUNT] = count
         mospl.SetName(spline.GetName())
+        mospl.SetMg(matrix)
 
         doc.InsertObject(mospl)
         res = make_editable(mospl)
         res.InsertAfter(spline)
-        
+
         c4d.EventAdd()
         doc.AddUndo(c4d.UNDOTYPE_NEW, mospl)
 
