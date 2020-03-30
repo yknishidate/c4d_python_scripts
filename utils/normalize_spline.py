@@ -24,9 +24,8 @@ def main():
         count = spline.GetPointCount()
         matrix = spline.GetMg()
         spline.SetMg(c4d.Matrix())
-        print count
 
-        mospl = c4d.BaseObject(440000054)
+        mospl = c4d.BaseObject(440000054) # MoSpline
         mospl[c4d.MGMOSPLINEOBJECT_MODE] = 1 # spline
         mospl[c4d.MGMOSPLINEOBJECT_SPLINE_MODE] = 2 # even
         mospl[c4d.MGMOSPLINEOBJECT_SOURCE_SPLINE] = spline
