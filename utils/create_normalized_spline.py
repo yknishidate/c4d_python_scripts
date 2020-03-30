@@ -33,10 +33,13 @@ def main():
 
     doc.InsertObject(mospl)
     res = make_editable(mospl)
-    res.InsertAfter(spline)
+    res.InsertBefore(spline)
     doc.AddUndo(c4d.UNDOTYPE_NEW, mospl)
 
     c4d.EventAdd()
+
+
+
 
     doc.SetActiveObject(mospl,1)
 
