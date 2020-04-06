@@ -1,14 +1,16 @@
 import c4d
 import random
 
+# setting of "convert selection" command
 setting = c4d.BaseContainer()
 setting[c4d.MDATA_CONVERTSELECTION_LEFT] = 2  # polygon
 setting[c4d.MDATA_CONVERTSELECTION_RIGHT] = 1  # edge
 
+# get object
 obj = doc.GetActiveObject()
-
 poly_cnt = obj.GetPolygonCount()
 
+# initialize polygon selection
 sel = obj.GetPolygonS()
 sel.DeselectAll()
 
