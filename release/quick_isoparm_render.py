@@ -11,7 +11,7 @@ class MyDialogs(gui.GeDialog):
         return 0
 
     def CreateLayout(self):
-        self.SetTitle("Easy Isoparm Render")
+        self.SetTitle("Quick Isoparm Render")
 
         self.GroupBegin(1, c4d.BFH_LEFT, 2) # |-|-|
 
